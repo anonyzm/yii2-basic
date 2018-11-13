@@ -1,59 +1,29 @@
 <?php
-
-$params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
-
-$config = [
-    'id' => 'basic',
-    'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
-    'aliases' => [
-        '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
-    ],
-    'components' => [
-        'request' => [
-            // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'edpQPCxHYXMAjF2_1P480BHmTSh_u0AI',
-        ],
-        'cache' => [
-            'class' => 'yii\caching\FileCache',
-        ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
-        'errorHandler' => [
-            'errorAction' => 'site/error',
-        ],
-        'mailer' => [
-            'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
-        ],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+$config = \yii\helpers\ArrayHelper::merge(
+    require (__DIR__ . '/common.php'),
+    [
+        'id' => 'yii2-web',
+        'components' => [
+            'request' => [
+                'cookieValidationKey' => 'JNP2hZ9KSj8v_hb47jPC_cbGKgupuSUB',
+            ],
+            'user' => [
+                'identityClass' => 'app\models\User',
+                'enableAutoLogin' => true,
+            ],
+            'errorHandler' => [
+                'errorAction' => 'site/error',
+            ],
+            'urlManager' => [
+                'enablePrettyUrl' => true,
+                'showScriptName' => false,
+                'rules' => [
+                    /* insert rules here */
                 ],
             ],
         ],
-        'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
-    ],
-    'params' => $params,
-];
+    ]
+);
 
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment

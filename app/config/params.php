@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
+    'adminEmail' => getenv('ADMIN_EMAIL'),
+    'adminPassword' => getenv('ADMIN_PASSWORD'),
 ];
