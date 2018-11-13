@@ -7,7 +7,7 @@ return [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
-        'log' => require (__DIR__ . '/logs.php'),
+        'log' => require (__DIR__ . '/log.php'),
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

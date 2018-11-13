@@ -4,9 +4,6 @@ $config = \yii\helpers\ArrayHelper::merge(
     [
         'id' => 'yii2-web',
         'components' => [
-            'request' => [
-                'cookieValidationKey' => 'JNP2hZ9KSj8v_hb47jPC_cbGKgupuSUB',
-            ],
             'user' => [
                 'identityClass' => 'app\models\User',
                 'enableAutoLogin' => true,
