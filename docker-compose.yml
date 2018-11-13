@@ -14,7 +14,7 @@ services:
       - WEB_ALIAS_DOMAIN=$APP_URL
 
   mysql:
-    image: mysql
+    image: mysql:5.7
     restart: always
     volumes:
       - ./docker/mysql:/var/lib/mysql
