@@ -26,18 +26,22 @@ down:
 
 # installing composer dependencies
 composer-install:
-	docker-compose exec php bash -c 'cd /app; composer install'
+	docker-compose exec --user application php bash -c 'cd /app; composer install'
 
 # proceeding migrations
 migrate:
-	docker-compose exec php php /app/yii migrate --interactive=0
+	docker-compose exec --user application php php /app/yii migrate --interactive=0
 
 # init default user
 create-user:
-	docker-compose exec php php /app/yii tools/create-default-user
+	docker-compose exec --user application php php /app/yii tools/create-default-user
 
-# shortcut to enter php container
+# shortcut to enter php container as application user
 bash:
+	docker-compose exec --user application php bash
+
+# shortcut to enter php container as root
+bash-root:
 	docker-compose exec php bash
 
 
