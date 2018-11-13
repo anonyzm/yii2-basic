@@ -10,7 +10,7 @@
 
 # environment initalization
 env:
-	cp ./env.dist ./app/.env
+	cp ./.env.dist ./app/.env
 	ln -s ./app/.env ./.env
 
 # project compilation
