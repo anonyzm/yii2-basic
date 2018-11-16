@@ -8,8 +8,8 @@ services:
     volumes:
       - ./app:/app:delegated
     environment:
-      - DUID=1000
-      - GDID=1000
+      - DUID=$DUID
+      - GDID=$GDID
       - WEB_DOCUMENT_ROOT=/app/web
       - WEB_ALIAS_DOMAIN=$APP_URL
 
